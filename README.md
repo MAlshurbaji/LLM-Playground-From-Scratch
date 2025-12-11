@@ -8,10 +8,7 @@ This project is inspired by the book: **Build a Large Language Model (From Scrat
 > **Note:** This project is for **learning purposes only**.  
 > The resulting models are not intended to be competitive.
 
-
-
 ## Project Overview
-
 This repository demonstrates the complete workflow of building a GPT-style LLM, including:
 
 - Downloading and managing a large set of LLM technical reports  
@@ -29,7 +26,7 @@ This repository demonstrates the complete workflow of building a GPT-style LLM, 
   - Model-as-a-Judge (e.g., Phi-3-Mini)
 
 ## Dataset Sources
-This project uses **38 public LLM technical reports** from major research labs. A detailed list of these reports is available at `report/project_overview.txt`
+This project uses **38 public LLM technical reports** from major research labs. A detailed list of these reports is available at `data/raw_pdf/pdfs_list.txt`
 
 ## Usage
 
