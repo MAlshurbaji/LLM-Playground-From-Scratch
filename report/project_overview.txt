@@ -1,0 +1,20 @@
+Project: LLM-Playground-From-Scratch
+Author: Mohammad AlShurbaji
+Purpose: Educational project demonstrating the full workflow of building, training, and fine-tuning a small GPT-style LLM from scratch.
+
+Main Components:
+1. Downloading and extracting LLM technical report PDFs
+2. Cleaning and preprocessing
+3. Regex tokenizer implementation + vocabulary creation
+4. BPE tokenization using tiktoken
+5. Dataset creation using sliding windows
+6. PyTorch dataloader
+7. GPT2 model training (two versions)
+8. Instruction-following dataset generation (2000+ samples)
+9. Fine-tuning
+10. Evaluation (BLEU, ROUGE, METEOR, F1, and model-as-a-judge)
+
+Notes:
+- The project is purely educational.
+- Many components are adapted from "Build a Large Language Model (From Scratch)" and rasbt’s repository.
+- Models trained here are small and not intended for real deployment.
