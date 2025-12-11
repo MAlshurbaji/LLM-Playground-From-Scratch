@@ -45,7 +45,7 @@ This allows us to compare:
 This project uses **38 public LLM technical reports** from major research labs. A detailed list of these reports is available at `data/raw_pdf/pdfs_list.txt`, all of them can be downloaded online.
 
 ## Usage
-Navigate to the main project directory, install all dependencies, and run the preprocessing workflow and the end-to-end training using the notebook `main.ipynb`.
+Navigate to the main project directory, install all dependencies (tested on Python 3.10, PyTorch 2.8, and CUDA 12.6), and run the preprocessing workflow and the end-to-end training using the notebook `main.ipynb`.
 
 ```bash
 cd LLM_Playground_From_Scratch
