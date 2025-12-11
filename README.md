@@ -34,3 +34,20 @@ This project uses **38 public LLM technical reports** from major research labs. 
 
 ```bash
 pip install -r requirements.txt
+
+```
+
+## Pretrained & Fine-Tuned Models (Optional)
+
+You can train your own models directly inside the notebook (`main.ipynb`). However, to save time, all pretrained and fine-tuned models are provided via Hugging Face.
+After downloading, place all model files into `models/`.
+
+| Model Description | Download Link |
+|------------------|----------------|
+| Regex Model — Pretrained | https://huggingface.co/AlShurbaji/LLM-Playground-From-Scratch/resolve/main/regex_pretrained.pth |
+| Regex Model — Fine-tuned | https://huggingface.co/AlShurbaji/LLM-Playground-From-Scratch/resolve/main/regex_finetuned.pth |
+| GPT-2 Model — Pretrained | https://huggingface.co/AlShurbaji/LLM-Playground-From-Scratch/resolve/main/gpt2_pretrained.pth |
+| GPT-2 Model — Fine-tuned | https://huggingface.co/AlShurbaji/LLM-Playground-From-Scratch/resolve/main/gpt2_finetuned.pth |
+| GPT-O Model — Fine-tuned | https://huggingface.co/AlShurbaji/LLM-Playground-From-Scratch/resolve/main/gpt_finetuned.pth |
+
+
