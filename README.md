@@ -72,7 +72,7 @@ After downloading, place all model files into `models/`.
 | GPT-2 Model — Fine-tuned | https://huggingface.co/AlShurbaji/LLM-Playground-From-Scratch/resolve/main/gpt2_finetuned.pth |
 | GPT-2o Model — Fine-tuned | https://huggingface.co/AlShurbaji/LLM-Playground-From-Scratch/resolve/main/gpt2o_finetuned.pth |
 
-## Results
+## My Results
 Below are the evaluation metrics for the three models:
 
 | Metric | Regex | GPT-2 | GPT-2 (Pretrained Weights) |
@@ -85,4 +85,54 @@ Below are the evaluation metrics for the three models:
 | **Judge Model Score** | **0.585** | **0.620** | **0.648** |
 
 Think you can beat these results? Go ahead, and keep me in touch ;)
+
+## What You Can Tweak to Improve Results
+This project is intentionally designed so you can experiment with many components and see how they influence model quality. Here are the main knobs you can adjust:
+
+### 1. PDF → Text Cleaning Pipeline
+- Modify thresholds for removing headers/footers.
+- Change `min_words` in subsection splitting (affects dataset size).
+- Adjust how aggressively captions, junk, or numeric artifacts are removed.
+
+### 2. Tokenization
+- Switch between:
+  - Regex tokenizer (small vocabulary, simpler behaviour)
+  - GPT-2 BPE tokenizer (larger vocabulary, better generalization)
+- Experiment with different regex splits or custom vocab pruning.
+
+### 3. GPT Model Architecture
+- `emb_dim`, `n_layers`, `n_heads`, `context_length`
+- Dropout rate (`drop_rate`)
+- Whether to use `qkv_bias=True/False`
+
+### 4. Dataset Windowing
+- `context_size`
+- `stride`
+- Sliding window overlap ratio
+- Train/val split proportions
+
+### 5. Training Hyperparameters
+- Learning rate (`lr`)
+- Weight decay
+- Batch size
+- Number of epochs
+- Scheduling or warmup (you can add your own)
+
+### 6. Sampling Parameters (Generation Quality)
+- `temperature`
+- `top_k`
+- `max_new_tokens`
+Different values create very different outputs—from deterministic to creative.
+
+### 7. Instruction–Response Dataset Generation
+- Number of synthetic pairs generated
+- Types of tasks (summarization, explanation, Q&A…)
+- Max character limits per chunk
+- Choice of LLM used for generating responses (Qwen, Mistral, etc.)
+
+### 8. Evaluation Methods
+- Add more LLM-Judge scoring with different judge models
+
+
+By adjusting these components, you can dramatically improve or degrade the model—so feel free to experiment and push your own custom LLMs to their limits!
 
