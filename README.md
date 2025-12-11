@@ -25,20 +25,42 @@ This repository demonstrates the complete workflow of building a GPT-style LLM, 
   - BLEU, ROUGE, METEOR, and F1 Score  
   - Model-as-a-Judge (e.g., Phi-3-Mini)
 
+## Tokenizers and Model Variants
+This project uses **two different tokenizers**, and therefore trains **two separate models** from scratch:
+1. **Custom Regex Tokenizer**
+   - Vocabulary built from scratch using regex-based tokenization.
+   - Model: `regex_pretrained.pth` → fine-tuned → `regex_finetuned.pth`
+
+2. **GPT-2 Tokenizer (tiktoken)**
+   - Uses OpenAI's GPT-2 BPE vocabulary.
+   - Model: `gpt2_pretrained.pth` → fine-tuned → `gpt2_finetuned.pth`
+
+Additionally, we download the official **pretrained GPT-2 model** (referred to here as **gpt-2o**) → fine-tuned → `gpt_finetuned.pth`
+
+This allows us to compare:
+- Two models trained from scratch (Regex vs GPT-2 tokenizer)
+- One pretrained baseline (GPT-2 original weights)
+
 ## Dataset Sources
-This project uses **38 public LLM technical reports** from major research labs. A detailed list of these reports is available at `data/raw_pdf/pdfs_list.txt`
+This project uses **38 public LLM technical reports** from major research labs. A detailed list of these reports is available at `data/raw_pdf/pdfs_list.txt`, all of them can be downloaded online.
 
 ## Usage
-
-### **1. Install Dependencies**
+Navigate to the main project directory, install all dependencies, and run the preprocessing workflow and the end-to-end training using the notebook `main.ipynb`.
 
 ```bash
+cd LLM_Playground_From_Scratch
 pip install -r requirements.txt
-
+jupyter notebook main.ipynb
 ```
 
-## Pretrained & Fine-Tuned Models (Optional)
+## Instruction Dataset for Fine-Tuning (Optional)
+The instruction-following dataset used to fine-tune the models can be **generated directly from the notebook** (automatic summarization, explanation, and Q&A generation), or you can **download the pre-generated dataset** located in `data/instructions_dataset.json`.
 
+Model responses on the validation set (used for scoring and evaluation) can be **generated directly from the notebook**, and also included in `data/model_responses/`.
+
+These files contain all Alpaca-style prompts and the corresponding model outputs.
+
+## Pretrained & Fine-Tuned Models (Optional)
 You can train your own models directly inside the notebook (`main.ipynb`). However, to save time, all pretrained and fine-tuned models are provided via Hugging Face.
 After downloading, place all model files into `models/`.
 
@@ -48,6 +70,19 @@ After downloading, place all model files into `models/`.
 | Regex Model — Fine-tuned | https://huggingface.co/AlShurbaji/LLM-Playground-From-Scratch/resolve/main/regex_finetuned.pth |
 | GPT-2 Model — Pretrained | https://huggingface.co/AlShurbaji/LLM-Playground-From-Scratch/resolve/main/gpt2_pretrained.pth |
 | GPT-2 Model — Fine-tuned | https://huggingface.co/AlShurbaji/LLM-Playground-From-Scratch/resolve/main/gpt2_finetuned.pth |
-| GPT-O Model — Fine-tuned | https://huggingface.co/AlShurbaji/LLM-Playground-From-Scratch/resolve/main/gpt_finetuned.pth |
+| GPT-2o Model — Fine-tuned | https://huggingface.co/AlShurbaji/LLM-Playground-From-Scratch/resolve/main/gpt2o_finetuned.pth |
 
+## Results
+Below are the evaluation metrics for the three models:
+
+| Metric | Regex | GPT-2 | GPT-2 (Pretrained Weights) |
+|--------|--------|--------|------------------------------|
+| **BLEU-4** | 4.85 (BP=1.00, P1=24.31, P2=7.57, P3=2.73, P4=1.10) | 9.33 (BP=1.00, P1=35.69, P2=12.85, P3=5.71, P4=2.89) | 14.67 (BP=1.00, P1=42.41, P2=18.23, P3=9.96, P4=6.02) |
+| **ROUGE-1 / ROUGE-2 / ROUGE-L-F1** | 0.379 / 0.111 / 0.197 | 0.398 / 0.120 / 0.211 | 0.485 / 0.194 / 0.271 |
+| **METEOR** | 0.232 | 0.229 | 0.312 |
+| **Token-F1** | 0.296 (P=0.248, R=0.366) | 0.321 (P=0.304, R=0.340) | 0.388 (P=0.361, R=0.421) |
+| **BERTScore** | −0.108 (P=−0.239, R=0.031) | 0.060 (P=0.009, R=0.112) | 0.229 (P=0.193, R=0.266) |
+| **Judge Model Score** | **0.585** | **0.620** | **0.648** |
+
+Think you can beat these results? Go ahead, and keep me in touch ;)
 
