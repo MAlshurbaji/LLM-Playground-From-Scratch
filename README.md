@@ -54,9 +54,9 @@ jupyter notebook main.ipynb
 ```
 
 ## Instruction Dataset for Fine-Tuning (Optional)
-The instruction-following dataset used to fine-tune the models can be **generated directly from the notebook** (automatic summarization, explanation, and Q&A generation), or you can **download the pre-generated dataset** located in `data/instructions_dataset.json`.
+The instruction-following dataset used to fine-tune the models can be **generated directly from the notebook** (automatic summarization, explanation, and Q&A generation), or can also be found in `data/instructions_dataset.json`.
 
-Model responses on the validation set (used for scoring and evaluation) can be **generated directly from the notebook**, and also included in `data/model_responses/`.
+Model responses on the validation set (used for scoring and evaluation) can be **generated directly from the notebook**, or can also be found in `data/model_responses/`.
 
 These files contain all Alpaca-style prompts and the corresponding model outputs.
 
@@ -75,7 +75,7 @@ After downloading, place all model files into `models/`.
 ## My Results
 Below are the evaluation metrics for the three models:
 
-| Metric | Regex | GPT-2 | GPT-2 (Pretrained Weights) |
+| Metric | Regex | GPT-2 (124M) | GPT-2 (124M)(Pretrained Weights) |
 |--------|--------|--------|------------------------------|
 | **BLEU-4** | 4.85 (BP=1.00, P1=24.31, P2=7.57, P3=2.73, P4=1.10) | 9.33 (BP=1.00, P1=35.69, P2=12.85, P3=5.71, P4=2.89) | 14.67 (BP=1.00, P1=42.41, P2=18.23, P3=9.96, P4=6.02) |
 | **ROUGE-1 / ROUGE-2 / ROUGE-L-F1** | 0.379 / 0.111 / 0.197 | 0.398 / 0.120 / 0.211 | 0.485 / 0.194 / 0.271 |
@@ -134,5 +134,4 @@ Different values create very different outputs—from deterministic to creative.
 - Add more LLM-Judge scoring with different judge models
 
 
-By adjusting these components, you can dramatically improve or degrade the model—so feel free to experiment and push your own custom LLMs to their limits!
-
+By adjusting these components (and many more), you can improve or degrade the model—so feel free to experiment and push your own custom LLMs to their limits!
