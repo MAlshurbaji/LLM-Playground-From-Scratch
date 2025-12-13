@@ -8,6 +8,8 @@ This project is inspired by the book: **Build a Large Language Model (From Scrat
 > **Note:** This project is for **learning purposes only**.  
 > The resulting models are not intended to be competitive.
 
+**Release date:** 13/Dec/2025
+
 ## Project Overview
 This repository demonstrates the complete workflow of building a GPT-style LLM, including:
 
