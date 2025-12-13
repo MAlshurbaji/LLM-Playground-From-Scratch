@@ -42,7 +42,7 @@ This allows us to compare:
 - One pretrained baseline (GPT-2 original weights)
 
 ## Dataset Sources
-This project uses **38 public LLM technical reports** from major research labs. A detailed list of these reports is available at `data/raw_pdf/pdfs_list.txt`, all of them can be downloaded online.
+This project uses **38 public LLM technical reports** from major research labs. A detailed list of these reports is available at `data/raw_pdf/pdfs_list.txt`; all of them can be downloaded online.
 
 ## Usage
 Navigate to the main project directory, install all dependencies (tested on Python 3.10, PyTorch 2.8, and CUDA 12.6), and run the preprocessing workflow and the end-to-end training using the notebook `main.ipynb`.
@@ -54,9 +54,9 @@ jupyter notebook main.ipynb
 ```
 
 ## Instruction Dataset for Fine-Tuning (Optional)
-The instruction-following dataset used to fine-tune the models can be **generated directly from the notebook** (automatic summarization, explanation, and Q&A generation), or can also be found in `data/instructions_dataset.json`.
+The instruction-following dataset used to fine-tune the models can be **generated directly from the notebook** (automatic summarization, explanation, and Q&A generation), or can also be found in `responses/instruction_data_from_pdfs.json`.
 
-Model responses on the validation set (used for scoring and evaluation) can be **generated directly from the notebook**, or can also be found in `data/model_responses/`.
+Each model's responses on the validation set (used for scoring and evaluation) can be **generated directly from the notebook**, or can also be found in `responses/***_val_responces.json`.
 
 These files contain all Alpaca-style prompts and the corresponding model outputs.
 
