@@ -75,14 +75,15 @@ After downloading, place all model files into `models/`.
 ## My Results
 Below are the evaluation metrics for the three models:
 
-| Metric | Regex | GPT-2 (124M) | GPT-2 (124M)(Pretrained Weights) |
-|--------|--------|--------|------------------------------|
-| **BLEU-4** | 4.85 (BP=1.00, P1=24.31, P2=7.57, P3=2.73, P4=1.10) | 9.33 (BP=1.00, P1=35.69, P2=12.85, P3=5.71, P4=2.89) | 14.67 (BP=1.00, P1=42.41, P2=18.23, P3=9.96, P4=6.02) |
-| **ROUGE-1 / ROUGE-2 / ROUGE-L-F1** | 0.379 / 0.111 / 0.197 | 0.398 / 0.120 / 0.211 | 0.485 / 0.194 / 0.271 |
-| **METEOR** | 0.232 | 0.229 | 0.312 |
-| **Token-F1** | 0.296 (P=0.248, R=0.366) | 0.321 (P=0.304, R=0.340) | 0.388 (P=0.361, R=0.421) |
-| **BERTScore** | −0.108 (P=−0.239, R=0.031) | 0.060 (P=0.009, R=0.112) | 0.229 (P=0.193, R=0.266) |
-| **Judge Model Score** | **0.585** | **0.620** | **0.648** |
+| Metric | Regex | GPT-2 (124M) | GPT-2 (124M) - Pretrained Weights |
+| ----------------- | -------------------------------- | --------------------------- | ---------------------------------- |
+| **BLEU-4** | 4.99 (BP=1.00, P1=24.68, P2=7.71, P3=2.84, P4=1.14) | 9.18 (BP=1.00, P1=35.78, P2=12.66, P3=5.61, P4=2.79) | **20.26** (BP=1.00, P1=44.91, P2=23.15, P3=15.05, P4=10.77) |
+| **ROUGE-1 / ROUGE-2 / ROUGE-L-F1** | 0.383 / 0.114 / 0.198   | 0.400 / 0.120 / 0.212  | **0.510 / 0.244 / 0.312**      |
+| **METEOR**         | 0.237    | 0.235       | **0.357**                                                   |
+| **Token-F1**   | 0.299 (P=0.250, R=0.373)   | 0.324 (P=0.306, R=0.345)  | **0.426** (P=0.394, R=0.464)                |
+| **BERTScore**   | −0.104 (P=−0.239, R=0.039)  | 0.061 (P=0.009, R=0.115)    | **0.268** (P=0.227, R=0.311)               |
+| **Judge Model Score**       | 43.3                | 49.9            | **68.6**      |
+
 
 Think you can beat these results? Go ahead, and keep me in touch ;)
 
@@ -133,5 +134,6 @@ Different values create very different outputs—from deterministic to creative.
 ### 8. Evaluation Methods
 - Add more LLM-Judge scoring with different judge models
 
-
 By adjusting these components (and many more), you can improve or degrade the model—so feel free to experiment and push your own custom LLMs to their limits!
+> Note that you are not restricted with the data given, and you can use your own data to train your LLM.
+
