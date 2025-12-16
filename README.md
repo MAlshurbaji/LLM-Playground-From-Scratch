@@ -1,5 +1,7 @@
 # LLM-Playground-From-Scratch
 
+![Framework](figures/overall_approach.png)
+
 **LLM-Playground-From-Scratch** is an educational, end-to-end project demonstrating how to build a miniature Large Language Model (LLM) entirely from scratch using Python and PyTorch.  
 The repository processes dozens of real LLM technical reports (GPT-3, GPT-4, LLaMA, PaLM, Gemini, Qwen, DeepSeek, and more), converts them into a structured dataset, tokenizes them, trains a small GPT-style model, and fine-tunes it on a custom instruction-following dataset of 2000+ pairs.
 
